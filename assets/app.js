@@ -1,40 +1,42 @@
-const DATA = [
-  {
-    session: "Session 1",
-    items: [
-      { title: "BT 1", file: "exercises/1-1.html" },
-      { title: "BT 2", file: "exercises/1-2.html" },
-    ],
-  },
-  {
-    session: "Session 2",
-    items: [
-      { title: "BT 1", file: "exercises/s2-bt1.html" },
-    ],
-  },
-];
+async function main() {
+  const app = document.getElementById("app");
+  app.innerHTML = `<p class="muted">Đang tải danh sách bài tập...</p>`;
 
-const app = document.getElementById("app");
+  try {
+    const res = await fetch("manifest.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
 
-app.innerHTML = DATA.map(group => {
-  const cards = group.items.map(it => {
-    const url = `viewer.html?file=${encodeURIComponent(it.file)}&label=${encodeURIComponent(group.session + " - " + it.title)}`;
-    return `
-      <a class="task-card" href="${url}">
-        <div class="task-title">${it.title}</div>
-        <div class="task-sub">${it.file}</div>
-      </a>
-    `;
-  }).join("");
+    const sessions = data.sessions || [];
+    if (!sessions.length) {
+      app.innerHTML = `<p class="muted">Không tìm thấy bài. Hãy chắc rằng bạn đã chạy tools/build-manifest.js.</p>`;
+      return;
+    }
 
-  return `
-    <section class="session">
-      <div class="session-header">
-        <h2>${group.session}</h2>
-      </div>
-      <div class="task-grid">
-        ${cards}
-      </div>
-    </section>
-  `;
-}).join("");
+    app.innerHTML = sessions.map(group => {
+      const cards = (group.items || []).map(it => {
+        const url = `viewer.html?file=${encodeURIComponent(it.file)}&label=${encodeURIComponent(group.session + " - " + it.title)}`;
+        return `
+          <a class="task-card" href="${url}">
+            <div class="task-title">${it.title}</div>
+            <div class="task-sub">${it.file}</div>
+          </a>
+        `;
+      }).join("");
+
+      return `
+        <section class="session">
+          <div class="session-header">
+            <h2>${group.session}</h2>
+            <p class="muted">${(group.items || []).length} bài</p>
+          </div>
+          <div class="task-grid">${cards}</div>
+        </section>
+      `;
+    }).join("");
+  } catch (e) {
+    app.innerHTML = `<p class="muted">Lỗi tải manifest.json: ${String(e.message || e)}</p>`;
+  }
+}
+
+main();
