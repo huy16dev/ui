@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Session 1 - BT 1</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 24px; }
+    .card { max-width: 520px; border: 1px solid #ddd; border-radius: 12px; padding: 16px; }
+    button { padding: 10px 12px; border-radius: 10px; border: 1px solid #ccc; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>BT 1: Counter</h1>
+    <p>Nhấn nút để tăng số.</p>
+    <button id="btn">Count: <span id="n">0</span></button>
+  </div>
+
+  <script>
+    let n = 0;
+    const nEl = document.getElementById('n');
+    document.getElementById('btn').addEventListener('click', () => {
+      n++;
+      nEl.textContent = n;
+    });
+  </script>
+</body>
+</html>
