@@ -37,7 +37,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
-          repository-name: <YOUR_GITHUB_USERNAME>/<DEPLOY_REPO_NAME>
+          repository-name: huy16dev/htmlcss
           branch: gh-pages
           folder: public
           clean: true
