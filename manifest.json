@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-25T15:00:58.042Z",
+  "generatedAt": "2025-12-25T15:04:37.980Z",
   "naming": "{session}-{bt}.html",
   "sessions": [
     {
@@ -81,6 +81,10 @@
         {
           "title": "B25DTCN178",
           "file": "exercises/3-5.html"
+        },
+        {
+          "title": "Form Thong Tin",
+          "file": "exercises/3-6.html"
         }
       ]
     }
