@@ -2,8 +2,8 @@ const DATA = [
   {
     session: "Session 1",
     items: [
-      { title: "BT 1", file: "exercises/s1-bt1.html" },
-      { title: "BT 2", file: "exercises/s1-bt2.html" },
+      { title: "BT 1", file: "exercises/1-1.html" },
+      { title: "BT 2", file: "exercises/1-2.html" },
     ],
   },
   {
