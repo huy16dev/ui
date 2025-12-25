@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Thong Tin</title>
+</head>
+<body>
+
+<form action="#" method="post">
+  <table cellpadding="6">
+    <tr>
+      <td><b>Ho va ten:</b></td>
+      <td><input type="text" name="hoten" size="25" required></td>
+    </tr>
+
+    <tr>
+      <td><b>Ngay sinh:</b></td>
+      <td><input type="date" name="ngaysinh" required></td>
+    </tr>
+
+    <tr>
+      <td><b>Gioi tinh:</b></td>
+      <td>
+        <input type="radio" name="gioitinh" value="nam" required> Nam
+        <input type="radio" name="gioitinh" value="nu"> Nu
+      </td>
+    </tr>
+
+    <tr>
+      <td><b>So can cuoc cong dan:</b></td>
+      <td>
+        <input type="text" name="cccd" size="25" required
+               pattern="[0-9]{12}"
+               title="CCCD gom dung 12 chu so (vi du: 012345678901)">
+      </td>
+    </tr>
+
+    <tr>
+      <td><b>Ngay cap:</b></td>
+      <td><input type="date" name="ngaycap" required></td>
+    </tr>
+
+    <tr>
+      <td><b>Noi cap:</b></td>
+      <td><input type="text" name="noicap" size="25" required></td>
+    </tr>
+
+    <tr>
+      <td><b>So dien thoai:</b></td>
+      <td>
+        <input type="tel" name="sdt" size="25" required
+               pattern="(\+84|0)[0-9]{9}"
+               title="Nhap 0912345678 hoac +84912345678">
+      </td>
+    </tr>
+
+    <tr>
+      <td><b>Email:</b></td>
+      <td><input type="email" name="email" size="25" required></td>
+    </tr>
+
+    <tr>
+      <td valign="top"><b>Dia chi thuong tru:</b></td>
+      <td><textarea name="thuongtru" cols="27" rows="3"></textarea></td>
+    </tr>
+
+    <tr>
+      <td valign="top"><b>Dia chi tam tru:</b></td>
+      <td><textarea name="tamtru" cols="27" rows="3"></textarea></td>
+    </tr>
+
+    <tr>
+      <td><b>Loai can cuoc cong dan:</b></td>
+      <td>
+        <input type="radio" name="loaicccd" value="moi" required> Can cuoc cong dan moi
+        <input type="radio" name="loaicccd" value="cu"> Can cuoc cong dan cu
+      </td>
+    </tr>
+
+    <tr>
+      <td><b>Dan toc:</b></td>
+      <td><input type="text" name="dantoc" size="25"></td>
+    </tr>
+
+    <tr>
+      <td><b>Ton giao:</b></td>
+      <td><input type="text" name="tongiao" size="25"></td>
+    </tr>
+
+    <tr>
+      <td><b>Quoc tich:</b></td>
+      <td><input type="text" name="quoctich" size="25" value="Viet Nam"></td>
+    </tr>
+
+    <tr>
+      <td><b>Ho ten cha/me:</b></td>
+      <td><input type="text" name="hotencha_me" size="25"></td>
+    </tr>
+
+    <tr>
+      <td><b>So CMND/CCCD cua cha/me:</b></td>
+      <td>
+        <input type="text" name="cccd_cha_me" size="25"
+               pattern="([0-9]{9}|[0-9]{12})"
+               title="CMND 9 so hoac CCCD 12 so">
+      </td>
+    </tr>
+
+    <tr>
+      <td><b>Tinh/Thanh pho:</b></td>
+      <td>
+        <select name="tinhthanh" required>
+          <option value="">Chon Tinh/Thanh pho</option>
+          <option value="hanoi">Ha Noi</option>
+          <option value="hcm">TP. Ho Chi Minh</option>
+          <option value="danang">Da Nang</option>
+          <option value="haiphong">Hai Phong</option>
+          <option value="cantho">Can Tho</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Gui thong tin"></td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>
