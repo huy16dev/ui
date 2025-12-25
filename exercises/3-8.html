@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>8</title>
+</head>
+<body>
+
+<form action="#" method="post">
+  <table cellpadding="6">
+    <tr>
+      <td><b>Ho va ten:</b></td>
+      <td><input type="text" name="hoten" size="25"></td>
+    </tr>
+
+    <tr>
+      <td><b>Ngay sinh:</b></td>
+      <td><input type="date" name="ngaysinh"></td>
+    </tr>
+
+    <tr>
+      <td><b>Gioi tinh:</b></td>
+      <td>
+        <input type="radio" name="gioitinh" value="nam"> Nam
+        <input type="radio" name="gioitinh" value="nu"> Nu
+      </td>
+    </tr>
+
+    <tr>
+      <td><b>So dien thoai:</b></td>
+      <td>
+        <input type="tel" name="sdt" size="25"
+               pattern="(\+84|0)[0-9]{9}"
+               title="Nhap 0912345678 hoac +84912345678">
+      </td>
+    </tr>
+
+    <tr>
+      <td><b>Email:</b></td>
+      <td><input type="email" name="email" size="25"></td>
+    </tr>
+
+    <tr>
+      <td><b>Ten cong ty:</b></td>
+      <td><input type="text" name="tencongty" size="25"></td>
+    </tr>
+
+    <tr>
+      <td><b>Vai tro trong cong ty:</b></td>
+      <td>
+        <select name="vaitro">
+          <option value="ceo">Giam doc dieu hanh (CEO)</option>
+          <option value="cto">Giam doc cong nghe (CTO)</option>
+          <option value="manager">Quan ly</option>
+          <option value="staff">Nhan vien</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td><b>Quy mo cong ty:</b></td>
+      <td>
+        <select name="quymo">
+          <option value="nho">Doanh nghiep nho</option>
+          <option value="vua">Doanh nghiep vua</option>
+          <option value="lon">Doanh nghiep lon</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <td><b>Nganh nghe cong ty:</b></td>
+      <td><input type="text" name="nganhnghe" size="25"></td>
+    </tr>
+
+    <tr>
+      <td valign="top"><b>Ly do tham gia cau lac bo:</b></td>
+      <td><textarea name="lydo" cols="27" rows="3"></textarea></td>
+    </tr>
+
+    <tr>
+      <td valign="top"><b>Kinh nghiem lanh dao:</b></td>
+      <td><textarea name="kinhnghiem" cols="27" rows="3"></textarea></td>
+    </tr>
+
+    <tr>
+      <td valign="top"><b>Muc tieu khi tham gia cau lac bo:</b></td>
+      <td><textarea name="muctieu" cols="27" rows="3"></textarea></td>
+    </tr>
+
+    <tr>
+      <td><b>Chuong trinh su kien mong muon tham gia:</b></td>
+      <td>
+        <input type="checkbox" name="chuongtrinh" value="networking"> Networking
+        <input type="checkbox" name="chuongtrinh" value="workshops"> Workshops
+        <input type="checkbox" name="chuongtrinh" value="hoithao"> Hoi thao
+      </td>
+    </tr>
+
+    <tr>
+      <td><b>Dang ky nhan ban tin:</b></td>
+      <td><input type="checkbox" name="bantin" value="co"> Co</td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Dang ky hoi vien"></td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>
