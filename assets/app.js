@@ -9,13 +9,14 @@ async function main() {
 
     const sessions = data.sessions || [];
     if (!sessions.length) {
-      app.innerHTML = `<p class="muted">Không tìm thấy bài. Hãy chắc rằng bạn đã chạy tools/build-manifest.js.</p>`;
+      app.innerHTML = `<p class="muted">Chưa có bài tập nào trong exercises/ hoặc manifest chưa được tạo.</p>`;
       return;
     }
 
     app.innerHTML = sessions.map(group => {
       const cards = (group.items || []).map(it => {
-        const url = `viewer.html?file=${encodeURIComponent(it.file)}&label=${encodeURIComponent(group.session + " - " + it.title)}`;
+        const label = `${group.session} - ${it.title}`;
+        const url = `viewer.html?file=${encodeURIComponent(it.file)}&label=${encodeURIComponent(label)}`;
         return `
           <a class="task-card" href="${url}">
             <div class="task-title">${it.title}</div>
