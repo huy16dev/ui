@@ -16,9 +16,9 @@
   <main class="container grid">
     <section class="card">
       <div class="card-header">
-        <h2>UI (Preview)</h2>
+        <h2>Preview</h2>
         <div class="actions">
-          <a id="openNewTab" class="btn" target="_blank" rel="noopener">Mở tab mới</a>
+          <a id="openNewTab" class="btn" target="_blank" rel="noopener">mở plank</a>
         </div>
       </div>
       <iframe id="preview" class="preview" loading="lazy"></iframe>
@@ -26,7 +26,7 @@
 
     <section class="card">
       <div class="card-header">
-        <h2>Code (HTML)</h2>
+        <h2>Code</h2>
         <div class="actions">
           <button id="copyBtn" class="btn" type="button">Copy</button>
         </div>
@@ -37,7 +37,7 @@
 
   <script>
     const params = new URLSearchParams(location.search);
-    const file = params.get("file");           // vd: exercises/s1-bt1.html
+    const file = params.get("file");
     const label = params.get("label") || "Bài tập";
 
     const titleEl = document.getElementById("title");
@@ -49,7 +49,7 @@
 
     if (!file) {
       titleEl.textContent = "Thiếu tham số file";
-      pathEl.textContent = "Ví dụ: viewer.html?file=exercises/s1-bt1.html&label=Session%201%20-%20BT%201";
+      pathEl.textContent = "Ví dụ: viewer.html?file=exercises/1-1.html&label=Session%201%20-%20BT%201";
       iframe.style.display = "none";
       copyBtn.disabled = true;
     } else {
