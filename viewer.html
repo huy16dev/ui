@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Xem bài tập</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="container">
+    <a class="back" href="index.html">← Quay lại</a>
+    <h1 id="title">Bài tập</h1>
+    <p class="muted" id="path"></p>
+  </header>
+
+  <main class="container grid">
+    <section class="card">
+      <div class="card-header">
+        <h2>UI (Preview)</h2>
+        <div class="actions">
+          <a id="openNewTab" class="btn" target="_blank" rel="noopener">Mở tab mới</a>
+        </div>
+      </div>
+      <iframe id="preview" class="preview" loading="lazy"></iframe>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Code (HTML)</h2>
+        <div class="actions">
+          <button id="copyBtn" class="btn" type="button">Copy</button>
+        </div>
+      </div>
+      <pre class="code"><code id="code"></code></pre>
+    </section>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const file = params.get("file");           // vd: exercises/s1-bt1.html
+    const label = params.get("label") || "Bài tập";
+
+    const titleEl = document.getElementById("title");
+    const pathEl = document.getElementById("path");
+    const iframe = document.getElementById("preview");
+    const codeEl = document.getElementById("code");
+    const openNewTab = document.getElementById("openNewTab");
+    const copyBtn = document.getElementById("copyBtn");
+
+    if (!file) {
+      titleEl.textContent = "Thiếu tham số file";
+      pathEl.textContent = "Ví dụ: viewer.html?file=exercises/s1-bt1.html&label=Session%201%20-%20BT%201";
+      iframe.style.display = "none";
+      copyBtn.disabled = true;
+    } else {
+      titleEl.textContent = label;
+      pathEl.textContent = file;
+
+      iframe.src = file;
+      openNewTab.href = file;
+
+      fetch(file)
+        .then(r => {
+          if (!r.ok) throw new Error("Không tải được file: " + r.status);
+          return r.text();
+        })
+        .then(html => {
+          codeEl.textContent = html;
+          copyBtn.addEventListener("click", async () => {
+            await navigator.clipboard.writeText(html);
+            copyBtn.textContent = "Đã copy";
+            setTimeout(() => (copyBtn.textContent = "Copy"), 1200);
+          });
+        })
+        .catch(err => {
+          codeEl.textContent =
+`Lỗi tải code.
+- Nếu bạn đang mở bằng file:// thì trình duyệt có thể chặn fetch().
+- Hãy chạy bằng Live Server hoặc host lên GitHub Pages.
+
+Chi tiết: ${err.message}`;
+          copyBtn.disabled = true;
+        });
+    }
+  </script>
+</body>
+</html>
