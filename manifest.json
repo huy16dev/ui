@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-26T00:50:08.071Z",
+  "generatedAt": "2025-12-26T01:03:00.995Z",
   "naming": "{session}-{bt}.html",
   "sessions": [
     {
@@ -67,6 +67,10 @@
         {
           "title": "4",
           "file": "exercises/2-4.html"
+        },
+        {
+          "title": "5",
+          "file": "exercises/2-6.html"
         }
       ]
     },
